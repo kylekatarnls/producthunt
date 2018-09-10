@@ -1,5 +1,5 @@
 {
-  "name": "socialiteproviders/producthunt",
+  "name": "kylekatarnls/socialiteproviders-producthunt",
   "description": "Product Hunt OAuth2 Provider for Laravel Socialite",
   "license": "MIT",
   "authors": [{
