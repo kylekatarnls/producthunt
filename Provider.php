@@ -14,6 +14,20 @@ class Provider extends AbstractProvider implements ProviderInterface
     const IDENTIFIER = 'PRODUCTHUNT';
 
     /**
+     * The scopes being requested.
+     *
+     * @var array
+     */
+    protected $scopes = ['public', 'private'];
+
+    /**
+     * The separating character for the requested scopes.
+     *
+     * @var string
+     */
+    protected $scopeSeparator = ' ';
+
+    /**
      * {@inheritdoc}
      */
     protected function getAuthUrl($state)
@@ -39,6 +53,8 @@ class Provider extends AbstractProvider implements ProviderInterface
         $response = $this->getHttpClient()->get(
             'https://api.producthunt.com/v1/me?access_token='.$token, [
             'headers' => [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
                 'Authorization' => 'Bearer '.$token,
             ],
         ]);
